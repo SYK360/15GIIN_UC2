@@ -4,36 +4,32 @@ public class PruebaHanoi {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Ingrese el número de platos en cada torre:");
-        int n = scanner.nextInt();
-        scanner.close();
+        System.out.print("Ingrese el número de discos en la Torre A: ");
+        int numDiscosA = scanner.nextInt();
+        System.out.print("Ingrese el número de discos en la Torre B: ");
+        int numDiscosB = scanner.nextInt();
 
-        // Mover todos los discos de B a un auxiliar (usamos C), dejando A libre para recibir los discos finales
-        moverPlatos(n, 'B', 'C', 'A', 'D');
-        // Ahora mover todos los discos de A y C a A
-        moverTodosADestino(n, 'C', 'A', 'D');
+        System.out.println("Moviendo todos los discos a la Torre A:");
+        // Mover discos de B a C usando D y A como auxiliares
+        moverDiscos(numDiscosB, 'B', 'C', 'D', 'A');
+        // Mover discos de A a D usando B y C como auxiliares
+        moverDiscos(numDiscosA, 'A', 'D', 'B', 'C');
+        // Mover discos de C a A usando B y D como auxiliares
+        moverDiscos(numDiscosB, 'C', 'A', 'B', 'D');
+        // Finalmente, mover discos de D a A usando B y C como auxiliares
+        moverDiscos(numDiscosA, 'D', 'A', 'B', 'C');
     }
 
-    // Método para mover discos de una torre a otra
-    public static void moverPlatos(int n, char inicio, char fin, char aux1, char aux2) {
-        if (n == 0) {
+    // Método recursivo para mover los discos
+    public static void moverDiscos(int n, char fromTower, char toTower, char auxTower1, char auxTower2) {
+        if (n == 0) return;
+        if (n == 1) {
+            System.out.println("Mueva el disco 1 desde " + fromTower + " hasta " + toTower);
             return;
         }
-        moverPlatos(n - 1, inicio, aux2, aux1, fin);
-        System.out.println("Mover plato " + n + " de " + inicio + " a " + fin);
-        moverPlatos(n - 1, aux2, fin, aux1, inicio);
-    }
 
-    // Método para combinar dos torres en una sola
-    public static void moverTodosADestino(int n, char inicio, char destino, char aux) {
-        if (n == 0) {
-            return;
-        }
-        // Primero aseguramos que el subconjunto superior de la pila inicial se mueva al auxiliar
-        moverTodosADestino(n - 1, inicio, aux, destino);
-        // Mover el disco más grande directamente al destino
-        System.out.println("Mover plato " + n + " de " + inicio + " a " + destino);
-        // Mover el subconjunto del auxiliar al destino
-        moverPlatos(n - 1, aux, destino, inicio, aux);
+        moverDiscos(n - 1, fromTower, auxTower1, auxTower2, toTower);
+        System.out.println("Mueva el disco " + n + " desde " + fromTower + " hasta " + toTower);
+        moverDiscos(n - 1, auxTower1, toTower, fromTower, auxTower2);
     }
 }

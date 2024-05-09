@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7db8152b-58f3-4554-8c04-e7079dc326c4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_15GIIN_UC2.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/PruebaHanoi.java" afterDir="false" />
+    <list default="true" id="7db8152b-58f3-4554-8c04-e7079dc326c4" name="Changes" comment="Init">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PruebaHanoi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PruebaHanoi.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +22,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitToolBoxStore">
+    <option name="projectConfigVersion" value="5" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
@@ -76,10 +74,40 @@
       <workItem from="1714850479099" duration="2381000" />
       <workItem from="1714864246372" duration="331000" />
       <workItem from="1714864589708" duration="856000" />
+      <workItem from="1714865460085" duration="1841000" />
+      <workItem from="1714867875964" duration="197000" />
+      <workItem from="1714868085000" duration="633000" />
+      <workItem from="1714868732925" duration="183000" />
+      <workItem from="1714868927117" duration="246000" />
+      <workItem from="1714869186062" duration="213000" />
+      <workItem from="1714869410894" duration="92000" />
+      <workItem from="1714869513666" duration="330000" />
+      <workItem from="1714869856760" duration="241000" />
+      <workItem from="1714870109294" duration="1989000" />
+      <workItem from="1714916384252" duration="554000" />
+      <workItem from="1714949871179" duration="1280000" />
+      <workItem from="1714951957214" duration="204000" />
+      <workItem from="1714952172981" duration="131000" />
+      <workItem from="1714952313828" duration="218000" />
+      <workItem from="1714952542601" duration="168000" />
+      <workItem from="1714952729968" duration="468000" />
     </task>
+    <task id="LOCAL-00001" summary="Init">
+      <option name="closed" value="true" />
+      <created>1714865819380</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1714865819380</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Init" />
+    <option name="LAST_COMMIT_MESSAGE" value="Init" />
   </component>
 </project>
