@@ -1,35 +1,56 @@
-import java.util.Scanner;
+import java.util.Stack;
 
 public class PruebaHanoi {
 
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Ingrese el número de discos en la Torre A: ");
-        int numDiscosA = scanner.nextInt();
-        System.out.print("Ingrese el número de discos en la Torre B: ");
-        int numDiscosB = scanner.nextInt();
-
-        System.out.println("Moviendo todos los discos a la Torre A:");
-        // Mover discos de B a C usando D y A como auxiliares
-        moverDiscos(numDiscosB, 'B', 'C', 'D', 'A');
-        // Mover discos de A a D usando B y C como auxiliares
-        moverDiscos(numDiscosA, 'A', 'D', 'B', 'C');
-        // Mover discos de C a A usando B y D como auxiliares
-        moverDiscos(numDiscosB, 'C', 'A', 'B', 'D');
-        // Finalmente, mover discos de D a A usando B y C como auxiliares
-        moverDiscos(numDiscosA, 'D', 'A', 'B', 'C');
-    }
-
-    // Método recursivo para mover los discos
-    public static void moverDiscos(int n, char fromTower, char toTower, char auxTower1, char auxTower2) {
-        if (n == 0) return;
-        if (n == 1) {
-            System.out.println("Mueva el disco 1 desde " + fromTower + " hasta " + toTower);
+    static int discos = 0;
+    static void towerOfHanoi(int n, char de_torre, char para_torre, char aux_torre, boolean finalMovement)
+    {
+        if (finalMovement) {
+            System.out.println("Mover disco " + n + " de torre "
+                    + de_torre + " para torre "
+                    + para_torre);
             return;
         }
 
-        moverDiscos(n - 1, fromTower, auxTower1, auxTower2, toTower);
-        System.out.println("Mueva el disco " + n + " desde " + fromTower + " hasta " + toTower);
-        moverDiscos(n - 1, auxTower1, toTower, fromTower, auxTower2);
+        if (n == 1) {
+            System.out.println("Mover disco 1 de torre "
+                    + de_torre + " para torre "
+                    + para_torre);
+            return;
+        }
+        towerOfHanoi(n - 1, de_torre, aux_torre, para_torre, finalMovement);
+        System.out.println("Mover disco " + n + " de torre "
+                + de_torre + " para torre "
+                + para_torre);
+            towerOfHanoi(n - 1, aux_torre, para_torre, aux_torre, finalMovement);
+    }
+
+    //  Driver method
+    public static void main(String args[])
+    {
+        discos = 3; // Numero de discos
+        System.out.println("Moviendo discos de la torra A a D");
+        towerOfHanoi(discos - 1, 'A', 'D', 'C', false);
+        System.out.println(" ");
+
+        System.out.println("Moviendo discos de la torra B a C");
+        towerOfHanoi(discos - 1, 'B', 'C', 'A', false);
+        System.out.println(" ");
+
+        // Movemos los discos mas grandes pendientes de la torre B a la torre A
+        System.out.println("Moviendo disco grande de la torra B a A");
+        towerOfHanoi(discos, 'B', 'A', 'C', true);
+        System.out.println(" ");
+
+
+        //Movemos los discos de las torres C y D para apilar por el mismo tamaño
+        System.out.println("Apilado discos por tamaño:");
+        towerOfHanoi(discos - 2, 'D', 'B', 'A', true);
+        towerOfHanoi(discos - 2, 'C', 'B', 'A', true);
+        towerOfHanoi(discos - 1, 'C', 'A', 'D', true);
+        towerOfHanoi(discos - 1, 'D', 'A', 'D', true);
+        towerOfHanoi(discos - 2, 'B', 'A', 'D', true);
+        towerOfHanoi(discos - 2, 'B', 'A', 'D', true);
+        System.out.println(" ");
     }
 }
